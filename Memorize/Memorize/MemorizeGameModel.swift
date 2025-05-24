@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MemorizeGameModel<CardContent> {
+struct MemorizeGameModel<CardContent: Equatable> {
     private(set) var cards: Array<Card>
     
     init(numberOfPairsOfCards: Int, cardContentFactory: (Int) -> CardContent) {
@@ -20,8 +20,13 @@ struct MemorizeGameModel<CardContent> {
         }
     }
     
-    func choose(_: Card) {
-        
+    mutating func choose(_ card: Card) {
+        // game logic implementation later
+        if let chosenIndex = cards.firstIndex(where: { $0.id == card.id }),
+           !cards[chosenIndex].isFaceUp,
+           !cards[chosenIndex].isMatched {
+               cards[chosenIndex].isFaceUp.toggle()
+           }
     }
     
     mutating func shuffle() {
@@ -29,11 +34,13 @@ struct MemorizeGameModel<CardContent> {
         print("Shuffled")
     }
     
-    struct Card: Identifiable {
-        let id: UUID = UUID()
+    struct Card: Identifiable, Equatable {
+        let id = UUID()
         var isFaceUp = false
         var isMatched = false
         let content: CardContent
     }
+    
+    
     
 }

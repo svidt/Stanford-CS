@@ -8,25 +8,87 @@
 import SwiftUI
 
 class MemorizeGameViewModel: ObservableObject, Identifiable {
-    private static let emojis = ["🐷", "🦑", "🐯", "🐘", "🐬", "🦇", "🐸", "🦜", "🐠", "🦧", "🦕", "🐣"]
+    enum Theme: CaseIterable {
+        case summer
+        case ocean
+        case scary
+        
+        var emojis: [String] {
+            switch self {
+            case .summer:
+                return ["☀️", "⛱️", "🍉", "🏄‍♀️", "🩴", "🍦"]
+            case .ocean:
+                return ["🐠", "🐳", "🐙", "🤿", "🌊", "🪸"]
+            case .scary:
+                return ["👻", "💀", "🏚️", "🧟", "🥀", "⚰️"]
+            }
+        }
+        
+        var color: Color {
+            switch self {
+            case .summer:
+                return .yellow
+            case .ocean:
+                return .blue
+            case .scary:
+                return .black
+            }
+        }
+        
+        var name: String {
+            switch self {
+            case .summer:
+                return "Summer"
+            case .ocean:
+                return "Ocean"
+            case .scary:
+                return "Scary"
+            }
+        }
+    }
     
-    private static func createMemorizeGame() -> MemorizeGameModel<String> {
-        return MemorizeGameModel(numberOfPairsOfCards: 3) { pairIndex in
+    @Published private var model: MemorizeGameModel<String>
+    @Published private(set) var currentTheme: Theme
+    
+    init() {
+        let initialTheme = Theme.summer
+        self.currentTheme = initialTheme
+        self.model = MemorizeGameViewModel.createMemorizeGame(theme: initialTheme)
+    }
+    
+
+    
+    private static func createMemorizeGame(theme: Theme) -> MemorizeGameModel<String> {
+        let emojis = theme.emojis.shuffled()
+        let numberOfPairs = Int.random(in: 2...min(6, emojis.count))
+        
+        var game = MemorizeGameModel(numberOfPairsOfCards: numberOfPairs) { pairIndex in
             if emojis.indices.contains(pairIndex) {
                 return emojis[pairIndex]
             } else {
                 return "⁉️"
             }
         }
+        
+        game.shuffle()
+        return game
     }
     
-    @Published private var model = createMemorizeGame()
     
     var cards: Array<MemorizeGameModel<String>.Card> {
-        return model.cards
+        model.cards
+    }
+    
+    var themeColor: Color {
+        currentTheme.color
     }
     
     // MARK: - Intents
+    
+    func selectTheme(_ theme: Theme) {
+        currentTheme = theme
+        model = MemorizeGameViewModel.createMemorizeGame(theme: theme)
+    }
     
     func shuffle() {
         model.shuffle()
