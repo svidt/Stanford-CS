@@ -37,50 +37,15 @@ Later in the course, we look at how to persist model data using property lists (
 
 As the course progresses, I will complete and document each assignment below. This section also serves as a placeholder for notes, insights, and improvements.
 
-### Lecture 1 – Introduction to iOS and SwiftUI  
+### Assignment 1 – Memorize Game  
+*In Progress*
+
+### Assignment 2  
 *Coming soon*
 
-### Lecture 2 – Declarative UI and View Composition  
+### Assignment 3
 *Coming soon*
 
-### Lecture 3 – State Management and the MVVM Pattern  
-*Coming soon*
-
-### Lecture 4 – Theme Handling and ViewBuilder  
-*Coming soon*
-
-### Lecture 5 – Animations and Transitions in SwiftUI  
-*Coming soon*
-
-### Lecture 6 – Navigation, Lists, and Grid Layouts  
-*Coming soon*
-
-### Lecture 7 – JSON Persistence and File I/O  
-*Coming soon*
-
-### Lecture 8 – Multithreading and Performance  
-*Coming soon*
-
-### Lecture 9 – Networking and Data Tasks  
-*Coming soon*
-
-### Lecture 10 – Core Data and Persistence  
-*Coming soon*
-
-### Lecture 11 – UI Polish and Accessibility  
-*Coming soon*
-
-### Lecture 12 – Advanced Swift and Design Patterns  
-*Coming soon*
-
-### Lecture 13 – Student Presentations and Final Projects  
-*Coming soon*
-
-### Lecture 14 – Review and Exam Prep  
-*Coming soon*
-
-### Lecture 15 – Final Q&A and Wrap-Up  
-*Coming soon*
 
 ---
 
