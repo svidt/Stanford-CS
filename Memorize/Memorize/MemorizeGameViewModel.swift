@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-class MemorizeGameViewModel {
+class MemorizeGameViewModel: ObservableObject, Identifiable {
     private static let emojis = ["🐷", "🦑", "🐯", "🐘", "🐬", "🦇", "🐸", "🦜", "🐠", "🦧", "🦕", "🐣"]
     
-    private static func createMemorizeGame() -> MemorizeGame<String> {
-        return MemorizeGame(numberOfPairsOfCards: 6) { pairIndex in
+    private static func createMemorizeGame() -> MemorizeGameModel<String> {
+        return MemorizeGameModel(numberOfPairsOfCards: 3) { pairIndex in
             if emojis.indices.contains(pairIndex) {
                 return emojis[pairIndex]
             } else {
@@ -20,19 +20,21 @@ class MemorizeGameViewModel {
         }
     }
     
-    private var gameViewModel = createMemorizeGame()
+    @Published private var model = createMemorizeGame()
     
-    var cards: Array<MemorizeGame<String>.Card> {
-        return gameViewModel.cards
+    var cards: Array<MemorizeGameModel<String>.Card> {
+        return model.cards
     }
     
     // MARK: - Intents
     
     func shuffle() {
-        gameViewModel.shuffle()
+        model.shuffle()
+        objectWillChange.send()
     }
     
-    func choose(_ card: MemorizeGame<String>.Card) {
-        gameViewModel.choose(card)
+    func choose(_ card: MemorizeGameModel<String>.Card) {
+        model.choose(card)
+        print("tapped")
     }
 }

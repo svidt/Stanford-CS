@@ -26,11 +26,12 @@ struct MemorizeGameModel<CardContent> {
     
     mutating func shuffle() {
         cards.shuffle()
-        print(cards)
+        print("Shuffled")
     }
     
-    struct Card {
-        var isFaceUp = true
+    struct Card: Identifiable {
+        let id: UUID = UUID()
+        var isFaceUp = false
         var isMatched = false
         let content: CardContent
     }
