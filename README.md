@@ -38,7 +38,7 @@ Later in the course, we look at how to persist model data using property lists (
 As the course progresses, I will complete and document each assignment below. This section also serves as a placeholder for notes, insights, and improvements.
 
 ### Assignment 1 – Memorize Game  
-*In Progress*
+Memorize Application - *In Progress*
 
 ### Assignment 2  
 *Coming soon*
@@ -46,6 +46,8 @@ As the course progresses, I will complete and document each assignment below. Th
 ### Assignment 3
 *Coming soon*
 
+### Lecture 1
+Course overview, project setup using Xcode IDE, getting the Swift foundations. Starting to build the UI, understanding Views and Structs.
 
 ---
 
