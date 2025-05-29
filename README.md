@@ -47,7 +47,18 @@ Memorize Application - *In Progress*
 *Coming soon*
 
 ### Lecture 1
-Course overview, project setup using Xcode IDE, getting the Swift foundations. Starting to build the UI, understanding Views and Structs.
+Course overview, project "Memorize" setup using Xcode IDE, getting the Swift foundations. Starting to build the UI, understanding Views and Structs. Preview and Simulator usage.
+
+### Lecture 2
+Continue development of "Memorize" card game. Reusable components, like the cards used. State Management to handle mutable states within Views. Preparation of MVVM (Model-View-ViewModel) architecture.
+
+## Lecture 3
+MVVM Design pattern.
+Model: Represents the application's data and logic.
+View: Handles the user interfaces, reflecting the state and provided by the ViewModel.
+ViewModel: Acts as an intermediary between the Model data and the View, managing data presentation and user actions.
+Applying @ObservedObject - to be used in the Views to observe changes in the ViewModel. @Published - used on properties inside the ViewModel to notify the View of changes.
+
 
 ---
 
